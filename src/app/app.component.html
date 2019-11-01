@@ -25,7 +25,7 @@
       <div class="form-group row">
         <label for="photo" class="col-sm-2 col-form-label">Add an image</label>
         <div class="col-sm-10">
-          <input type="file" accept="image/*" #photo>
+          <input type="file" accept="image/*" (change)="onFileSelect($event)">
         </div>
       </div>
 
