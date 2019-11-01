@@ -14,7 +14,7 @@ import { catchError, shareReplay } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   items: Array<Item> = [];
   form: FormGroup;
-  serverAddress = 'http://127.0.0.1:8080';
+  serverAddress = 'https://beeble-assignment.herokuapp.com';
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
