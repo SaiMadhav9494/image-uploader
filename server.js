@@ -9,9 +9,10 @@ const fs = require('fs');
 
 const app = express();
 
-const whiteList = ['http://localhost:4200', 'https://beeble-assignment.herokuapp.com/'];
+const whiteList = ['http://localhost:4200', 'https://beeble-assignment.herokuapp.com'];
 app.use(cors({
     origin(origin, callback) {
+        console.log('the origin ', origin);
       if (whiteList.indexOf(origin) !== -1 || !origin) callback(null, true);
       else callback(new Error('Origin not allowed by CORS policy'));
     },
@@ -116,7 +117,7 @@ app.post('/items', function(req, res) {
     });
 });
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
     
     res.sendFile(path.join(__dirname+'/dist/beeble/index.html'));
 });
