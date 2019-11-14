@@ -30,11 +30,11 @@ const { Item } = require('./item');
 
 const db = mongoose.connection;
 
-mongoose.connect('mongodb+srv://sperumal:sperumal@cluster0-cp4wj.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://<username>:username@cluster0-cp4wj.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     auth: {
-        user: 'sperumal',
-        password: 'sperumal'
+        user: '',
+        password: ''
     },
     server: {
         auto_connect: true
@@ -99,7 +99,7 @@ app.post('/items', function(req, res) {
             title: req.body.title,
             description: req.body.description,
             quantity: req.body.quantity,
-            photo: req.file ? `http://${ req.headers.host }/images/${ req.file.filename }`: null
+            photo: req.file ? `https://${ req.headers.host }/images/${ req.file.filename }`: null
         });
     
         item.save((err) => {
